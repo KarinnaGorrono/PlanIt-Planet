@@ -26,7 +26,6 @@
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
- 
       <span class="navbar-text">
         <button
           class="

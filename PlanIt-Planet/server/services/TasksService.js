@@ -27,7 +27,7 @@ class TasksService {
         taskToEdit.name = updatedTask.name || taskToEdit.name
         taskToEdit.weight = updatedTask.weight || taskToEdit.weight
         taskToEdit.sprintId = updatedTask.sprintId || taskToEdit.sprintId
-        taskToEdit.isComplete = updatedTask.isComplete || taskToEdit.isComplete
+        taskToEdit.isComplete = updatedTask.isComplete != undefined ? updatedTask.isComplete : taskToEdit.isComplete
 
         await taskToEdit.save()
         return taskToEdit

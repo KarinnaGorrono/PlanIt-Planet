@@ -8,8 +8,7 @@
             type="checkbox"
             :name="task.name"
             :id="task.id"
-            v-model="task.isCompleted"
-            disabled
+            :checked="task.isComplete"
           />
           {{ task.name }}
         </h3>
