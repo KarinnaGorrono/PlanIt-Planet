@@ -1,29 +1,32 @@
 <template>
-  
-    <div class="col-md-12">
-  <div class="ps-5">
-    <div class="d-flex">
-      <h3>
-        <input
-          type="checkbox"
-          :name="task.name"
-          :id="task.id"
-          :value="task.name"
-        />
-        {{ task.name }}
-      </h3>
-      <i
-        class="mdi mdi-close ps-4 pt-1 fs-5 selectable"
-        @click="deleteTask()"
-      ></i>
+  <div class="col-md-12">
+    <div class="ps-5">
+      <div class="d-flex">
+        <h3>
+          <input
+            @click="checkTask()"
+            type="checkbox"
+            :name="task.name"
+            :id="task.id"
+            v-model="task.isCompleted"
+            disabled
+          />
+          {{ task.name }}
+        </h3>
+        <i
+          class="mdi mdi-close ps-4 pt-1 fs-5 selectable"
+          @click="deleteTask()"
+        ></i>
+      </div>
+      <div class="ps-4 pt-2">
+        <i class="mdi mdi-rocket-launch-outline fs-5">{{ task.weight }}</i>
+        <i
+          class="ps-5 mdi mdi-comment-text-outline fs-5 selectable"
+          data-bs-toggle="offcanvas"
+          :data-bs-target="'#task-details-' + `${task.id}`"
+        ></i>
+      </div>
     </div>
-    <div class="ps-4 pt-2">
-      <i class="mdi mdi-rocket-launch-outline fs-5">{{ task.weight }}</i>
-      <i class="ps-5 mdi mdi-comment-text-outline fs-5 selectable" data-bs-toggle="offcanvas"
-:data-bs-target="'#task-details-' + `${task.id}`"></i>
-    </div>
-  </div>
-
   </div>
   <TaskDetails :task="task" />
 </template>

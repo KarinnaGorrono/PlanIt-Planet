@@ -4,13 +4,13 @@
     class="accordion-collapse collapse"
     data-bs-parent="#accordianFlushParent"
   >
-    <div class="accordian-body">
+    <!-- <div class="accordian-body">
       <div class="row" v-for="t in Tasks" :key="t.id">
         <div class="col-12">
           <Tasks :task="t" />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
