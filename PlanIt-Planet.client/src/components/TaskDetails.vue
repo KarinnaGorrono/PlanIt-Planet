@@ -8,11 +8,16 @@
         aria-labelledby="offcanvasExampleLabel"
       >
         <div class="offcanvas-header border-bottom border-dark">
-          <h5 class="offcanvas-title text-dark text-uppercase fs-2" id="offcanvasRight"
->
+          <h5
+            class="offcanvas-title text-dark text-uppercase fs-2"
+            id="offcanvasRight"
+          >
             {{ task.name }}
           </h5>
-          <i class="mdi mdi-pencil bg-white selectable fs-2" @click="showEdit = !showEdit"></i>
+          <i
+            class="mdi mdi-pencil bg-white selectable fs-2"
+            @click="showEdit = !showEdit"
+          ></i>
         </div>
         <div class="offcanvas-body container-fluid">
           <div class="row mb-4 ms-2">
@@ -24,9 +29,14 @@
           <div class="row ms-2">
             <div class="col-12">
               <div
-                class="row justify-content-center mb-4 border-bottom border-dark "
+                class="
+                  row
+                  justify-content-center
+                  mb-4
+                  border-bottom border-dark
+                "
               >
-                <div class="col-md-6 text-center text-dark ">
+                <div class="col-md-6 text-center text-dark">
                   <p class="fs-2">Notes</p>
                 </div>
               </div>
@@ -37,7 +47,6 @@
                     <input
                       v-model="state.editable.body"
                       type="text"
-                   
                       class="border border-1 border-light w-100"
                     />
                     <button
@@ -52,10 +61,9 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <div class="row" >
-                  <Note v-for="n in notes" :key="n.id" :note="n"/>
+                  <div class="row">
+                    <Note v-for="n in notes" :key="n.id" :note="n" />
                     <div class="col-md-12 my-1 d-flex align-items-center">
-                    
                       <p class="m-0 ms-1"></p>
                     </div>
                     <div class="col-md-6"></div>
@@ -88,7 +96,7 @@ export default {
       state,
       showEdit,
       tasks: computed(() => AppState.tasks),
-      notes: computed(() => AppState.notes),
+      notes: computed(() => AppState.notes.filter(n => n.taskId == props.task.id)),
       sprints: computed(() => AppState.sprints),
       projects: computed(() => AppState.projects),
       account: computed(() => AppState.account),

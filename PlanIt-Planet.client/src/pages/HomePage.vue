@@ -10,7 +10,7 @@
             <div class="row justify-content-between">
               <div class="col-md-4 text-start mx-4 text-dark lighten-25">
                 <h1>Projects</h1>
-                </div>
+              </div>
               <div class="col-md-4 text-end mx-4">
                 <button
                   class="btn btn-outline-primary lighten-25"
@@ -66,7 +66,7 @@
                   >
                     <p>{{ p.name }}</p>
                   </div>
-                  <div class="col-md-4 ">
+                  <div class="col-md-4">
                     <img
                       class="rounded-circle img-fluid w-25"
                       :src="p.creator?.picture"
@@ -74,14 +74,19 @@
                     />
                   </div>
                   <div
-                    class="col-md-4 text-dark d-flex justify-content-center align-items-middle">
+                    class="
+                      col-md-4
+                      text-dark
+                      d-flex
+                      justify-content-center
+                      align-items-middle
+                    "
+                  >
                     <p class="align-self-end d-flex mx-3">
                       {{ new Date(p.createdAt).toLocaleString() }}
                     </p>
                     <button
                       class="btn btn-danger mdi mdi-delete selectable"
-                      
-                      
                       @click="removeProject(p.id)"
                     ></button>
                   </div>
@@ -174,7 +179,7 @@ export default {
       },
       projects: computed(() => AppState.projects),
       user: computed(() => AppState.user),
-      account: computed(()=> AppState.account)
+      account: computed(() => AppState.account)
 
     }
   }
@@ -211,5 +216,4 @@ export default {
 .h-10 {
   height: 10%;
 }
-
 </style>

@@ -4,7 +4,7 @@
       <div class="card p-3 elevation-2 m-1">
         <div class="card-text">
           <div class="row justify-content-between">
-            <div class="col-8">
+            <div class="col-12">
               <div
                 class="
                   row
@@ -12,39 +12,34 @@
                   d-flex
                   align-items-center
                   accordian-button
-                  colapsed
+                  collapsed
                 "
                 id="accordianFlushParent"
                 data-bs-toggle="collapse"
                 :data-bs-target="'#flush' + sprint.id"
               >
-                <div class="col-1"></div>
-                <div class="col-7">
-                  <h3>
-                    {{ sprint.name }}
-                  </h3>
-                </div>
-                <div class="col-4">
-                  <h4>Weight: {{ totalWeight }}</h4>
+                <div class="col-12 d-flex justify-content-between">
+                  <div class="d-flex p-1">
+                    <h2>{{ sprint.name }}</h2>
+                    <p>Total Weight: {{ totalWeight }}</p>
+                  </div>
+                  <div class="d-flex p-1">
+                    <p>Task Counter here</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-2 d-flex justify-content-end">
-              <button
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                :data-bs-target="'#createtask-modal-' + sprint.id"
-              >
-                Add Task
-              </button>
-            </div>
-            <div class="col-1 d-flex justify-content-end">
-              <button class="btn btn-danger" @click="deleteSprint">
-                Delete Sprint
-              </button>
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  :data-bs-target="'#createtask-modal-' + sprint.id"
+                >
+                  Add Task
+                </button>
+              </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row" :id="'flush' + sprint.id">
             <div class="col-12" v-for="t in tasks" :key="t">
               <Task :task="t" />
             </div>
@@ -82,7 +77,7 @@ export default {
         }
       },
       projects: computed(() => AppState.projects),
-      tasks: computed(() => AppState.tasks),
+      tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id)),
 
       totalWeight: computed(() => {
         let count = 0
