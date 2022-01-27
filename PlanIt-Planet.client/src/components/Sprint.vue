@@ -34,19 +34,19 @@
                 class="btn btn-primary"
                 data-bs-toggle="modal"
                 :data-bs-target="'#createtask-modal-' + sprint.id"
-               
               >
                 Add Task
               </button>
             </div>
             <div class="col-1 d-flex justify-content-end">
-              <button
-                class="btn btn-danger"
-                
-            @click="deleteSprint"
-              >
-               Delete Sprint
+              <button class="btn btn-danger" @click="deleteSprint">
+                Delete Sprint
               </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12" v-for="t in tasks" :key="t">
+              <Task :task="t" />
             </div>
           </div>
         </div>
@@ -82,6 +82,7 @@ export default {
         }
       },
       projects: computed(() => AppState.projects),
+      tasks: computed(() => AppState.tasks),
 
       totalWeight: computed(() => {
         let count = 0
