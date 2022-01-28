@@ -3,26 +3,43 @@
     <div class="col-12">
       <div class="card p-2 mt-2">
         <div class="card-body p-4">
-          <h2>
+          <h1 class="text-secondary text-uppercase">
             <b> {{ project.name }} </b>
-          </h2>
-          <div class="d-flex justify-content-between">
+          </h1>
+          <div class="d-flex justify-content-between pt-2 ps-1">
             <h5>
               {{ project.description }}
             </h5>
-           <button
-              class="btn btn-primary"
+
+            <button
+              class="btn btn-outline-secondary text-uppercase fw-bold"
               data-bs-target="#sprintModal"
               data-bs-toggle="modal"
+              aria-label="create new sprint"
             >
               Create Sprint
             </button>
           </div>
           <div class="container p-3">
             <div class="row" v-for="s in sprints" :key="s.id">
-              <div class="col-12">
+              <div class="col-12 py-2">
                 <Sprint :sprint="s" />
               </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button
+                v-if="p.creator.id === account.id"
+                class="
+                  btn
+                  text-secondary
+                  mdi mdi-delete
+                  text-uppercase
+                  fw-bold
+                  fs-2
+                "
+                @click="deleteProject"
+                :aria-label="'delete' + project.name"
+              ></button>
             </div>
           </div>
         </div>
@@ -55,7 +72,9 @@ export default {
     return {
       async deleteProject() {
         try {
-          await projectsService.removeProject(route.params.id)
+          if (window.confirm('Are you sure you want to delete this?')) {
+            await projectsService.removeProject(route.params.id)
+          }
           router.push({
             name: "Home"
           })
