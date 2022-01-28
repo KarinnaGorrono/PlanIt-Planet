@@ -10,7 +10,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <router-link :to="{ name: 'Home' }" class="btn lighten-30">
-          <h2 class="planItText">Plan-It</h2>
+          <h2 class="planItText pt-3 ps-1 text-uppercase text-shadow">
+            Plan-It
+          </h2>
         </router-link>
       </div>
     </router-link>
@@ -25,17 +27,13 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div
+      class="collapse navbar-collapse d-flex justify-content-end"
+      id="navbarText"
+    >
       <span class="navbar-text">
         <button
-          class="
-            btn
-            selectable
-            text-success
-            lighten-30
-            text-uppercase
-            my-2 my-lg-0
-          "
+          class="btn selectable text-secondary text-uppercase my-2 my-lg-0"
           @click="login"
           v-if="!user.isAuthenticated"
         >
@@ -49,13 +47,11 @@
             aria-expanded="false"
             id="authDropdown"
           >
-            <img
-              :src="user.picture"
-              alt="user photo"
-              height="40"
-              class="rounded"
-            />
-            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+            <img :src="account.picture" alt="user photo" class="user-img" />
+            <span
+              class="mx-3 text-secondary text-uppercase fw-bolder text-shadow"
+              >{{ account.name }}</span
+            >
           </div>
           <div
             class="dropdown-menu p-0 list-group w-100"
@@ -92,6 +88,7 @@ export default {
   setup() {
     return {
       user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
       async login() {
         AuthService.loginWithPopup()
       },
@@ -127,5 +124,15 @@ a:hover {
   background: rgb(226, 185, 238);
   background: radial-gradient(circle, #dfaeee 0%, #79d0f3 100%);
   /* Is there a way to make navbar blend with background smoother? */
+}
+
+.user-img {
+  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 </style>
