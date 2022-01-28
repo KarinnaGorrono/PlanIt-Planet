@@ -7,12 +7,12 @@
       aria-labelledby="offcanvasExampleLabel"
     >
       <div class="offcanvas-header">
-        <h5
-          class="offcanvas-title lighten-25 text-primary"
+        <h4
+          class="offcanvas-title text-secondary text-uppercase fw-bolder ps-5"
           id="project-offcanvas"
         >
-          Projects
-        </h5>
+          {{ account.name }}'s Projects
+        </h4>
         <button
           type="button"
           class="btn-close text-reset"
@@ -20,11 +20,15 @@
           aria-label="Close"
         ></button>
       </div>
-      <h6 class="px-3">for {{ account.email }}</h6>
+      <!-- <h5 class="px-3">
+        For <span class="text-uppercase"> {{ account.name }}</span>
+      </h5> -->
       <div class="offcanvas-body container-fluid">
-        <div class="row mx-4 border-bottom border-2 mb-2">
-          <div class="col-md-6 text-primary lighten-25">Name</div>
-          <div class="col-md-6 text-end text-primary lighten-25">Started</div>
+        <div class="row mx-4 border-bottom border-2 mb-2 pt-3">
+          <div class="col-md-6 text-primary text-uppercase fw-bolder">Name</div>
+          <div class="col-md-6 text-end text-primary text-uppercase fw-bolder">
+            Started
+          </div>
         </div>
         <div
           class="row my-1 selectable"
@@ -41,7 +45,16 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <div
-            class="button btn btn-outline-primary w-40 button-40"
+            class="
+              button
+              btn btn-outline-secondary
+              w-40
+              button-40
+              text-uppercase
+              pe-2
+              fw-bolder
+            "
+            aria-label="create project"
             @click="createModal"
           >
             Create Project

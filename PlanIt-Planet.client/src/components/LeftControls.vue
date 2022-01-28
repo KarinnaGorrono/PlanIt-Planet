@@ -1,16 +1,27 @@
 <template>
   <button
-    class="btn-primary w-50 mt-4 h-10 border-0 rounded"
+    class="
+      btn-info
+      w-75
+      mt-5
+      height
+      shadow
+      border-0
+      elevatation-5
+      rounded
+      mdi mdi-rocket-launch-outline
+      text-dark
+      lighten-25
+      display-3
+    "
     type="button"
     data-bs-toggle="offcanvas"
     data-bs-target="#proj-offcanvas"
-    aria-controls="offcanvasExample"
-    aria-label="sidebutton1"
+    aria-controls="offcanvas-projects"
+    aria-label="project navigation"
     title="projects"
     @click="ProjectSelector"
-  >
-    P
-  </button>
+  ></button>
 </template>
 
 
@@ -30,7 +41,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.h-10 {
-  height: 10%;
+.height {
+  height: 75px;
 }
 </style>

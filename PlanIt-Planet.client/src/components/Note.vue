@@ -4,13 +4,22 @@
       <div class="row">
         <div class="col-12">
           <div class="d-flex align-items-center">
-          <img class="imgting" :src="note.creator.picture" alt="" />
-          <p class="fs-6 ps-3">{{ note.creator.name }}</p>
-</div>
-<div class="p-2 ps-4 mt-1">
-    <p class="fs-4">{{note.body}}</p>
-</div>
-<i class="mdi mdi-trash-can-outline d-flex justify-content-end selectable" @click="deleteTask"></i>
+            <img class="imgting" :src="note.creator.picture" alt="" />
+            <p class="fs-6 ps-3">{{ note.creator.name }}</p>
+          </div>
+          <div class="p-2 ps-4 mt-1">
+            <p class="fs-4">{{ note.body }}</p>
+          </div>
+          <i
+            v-if="note.creator.id === account.id"
+            class="
+              mdi mdi-trash-can-outline
+              d-flex
+              justify-content-end
+              selectable
+            "
+            @click="deleteTask"
+          ></i>
         </div>
       </div>
     </div>
@@ -30,7 +39,8 @@ export default {
       logger.log('notes', AppState.notes)
     })
     return {
-        notes: computed(()=> AppState.notes),
+      notes: computed(() => AppState.notes),
+      account: computed(() => AppState.account),
       async deleteTask() {
         notesService.deleteNotes(route.params.id, props.note.id)
       }

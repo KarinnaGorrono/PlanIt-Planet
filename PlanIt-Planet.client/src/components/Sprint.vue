@@ -20,17 +20,21 @@
               >
                 <div class="col-12 d-flex justify-content-between">
                   <div class="d-flex p-1">
-                    <h2>{{ sprint.name }}</h2>
-                    <p>Total Weight: {{ totalWeight }}</p>
+                    <h3 class="text-primary text-uppercase fw-bold pt-2">
+                      {{ sprint.name }}
+                    </h3>
                   </div>
                   <div class="d-flex p-1">
-                    <p>Task Counter here</p>
+                    <p class="mdi mdi-weight fs-2 text-primary">
+                      {{ totalWeight }}
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-start">
                 <button
-                  class="btn btn-primary"
+                  :aria-label="'add task for' + sprint.name"
+                  class="btn btn-outline-primary text-uppercase"
                   data-bs-toggle="modal"
                   :data-bs-target="'#createtask-modal-' + sprint.id"
                 >
@@ -39,8 +43,8 @@
               </div>
             </div>
           </div>
-          <div class="row" :id="'flush' + sprint.id">
-            <div class="col-12" v-for="t in tasks" :key="t">
+          <div class="row pt-4" :id="'flush' + sprint.id">
+            <div class="col-12 py-3" v-for="t in tasks" :key="t">
               <Task :task="t" />
             </div>
           </div>
@@ -78,6 +82,8 @@ export default {
       },
       projects: computed(() => AppState.projects),
       tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id)),
+      completedTasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id && t.isCompleted)),
+      uncompletedTasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id && !t.isCompleted)),
 
       totalWeight: computed(() => {
         let count = 0

@@ -5,17 +5,18 @@
         class="offcanvas offcanvas-end w-50"
         tabindex="-1"
         :id="'task-details-' + `${task.id}`"
-        aria-labelledby="offcanvasExampleLabel"
+        :aria-labelledby="'notes offcanvas for' + task.name"
       >
         <div class="offcanvas-header border-bottom border-dark">
           <h5
-            class="offcanvas-title text-dark text-uppercase fs-2"
+            class="offcanvas-title text-secondary fw-bold text-uppercase fs-2"
             id="offcanvasRight"
           >
             {{ task.name }}
           </h5>
           <i
-            class="mdi mdi-pencil bg-white selectable fs-2"
+            v-if="task.creator.id === account.id"
+            class="mdi mdi-pencil bg-white selectable text-secondary fs-2"
             @click="showEdit = !showEdit"
           ></i>
         </div>
@@ -36,12 +37,21 @@
                   border-bottom border-dark
                 "
               >
-                <div class="col-md-6 text-center text-dark">
+                <div
+                  class="
+                    col-md-6
+                    text-center text-primary
+                    fw-bold
+                    text-uppercase
+                  "
+                >
                   <p class="fs-2">Notes</p>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 mb-1">Add a Note</div>
+                <div class="col-md-12 mb-1 text-primary text-uppercase fw-bold">
+                  Add a Note
+                </div>
                 <form @submit.prevent="makeNote">
                   <div class="col-md-12 d-flex mb-2">
                     <input

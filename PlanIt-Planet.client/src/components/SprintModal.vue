@@ -4,7 +4,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Create Sprint</h5>
+            <h5 class="modal-title text-secondary fw-bolder text-uppercase">
+              Create Sprint
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -13,29 +15,38 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="row">
-              <div class="col-1"></div>
-              <div class="col-10 d-flex">
-                <h6><b>Sprint Name</b></h6>
-                <input
-                  type="text"
-                  class="w-100"
-                  v-model="state.editable.name"
-                  
-                />
-              </div>
+            <div class="row p-2">
+              <label for="picture" class="text-secondary fw-bolder pb-2"
+                >SPRINT NAME:</label
+              >
+              <input
+                type="text"
+                name="newSprint"
+                id="newSprint"
+                aria-label="New Sprint Input"
+                class="w-100"
+                v-model="state.editable.name"
+              />
+
               <div class="col-1"></div>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="d-flex justify-content-between my-3 px-2">
             <button
               type="button"
-              class="btn btn-secondary"
               data-bs-dismiss="modal"
+              aria-label="Close"
+              class="btn text-dark lighten-20 text-uppercase selectable"
             >
-              Close
+              <b> cancel </b>
             </button>
-            <button type="submit" class="btn btn-primary">Create Sprint</button>
+            <button
+              type="submit"
+              class="btn text-primary text-uppercase selectable"
+              aria-label="Submit Create Task"
+            >
+              <b> submit </b>
+            </button>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@
             </div>
             <div class="d-flex justify-content-end">
               <button
-                v-if="p.creator.id === account.id"
+                v-if="project.creator.id === account.id"
                 class="
                   btn
                   text-secondary
@@ -90,7 +90,8 @@ export default {
         }
       },
       sprints: computed(() => AppState.sprints),
-      project: computed(() => AppState.projects.find(p => p.id == route.params.id))
+      project: computed(() => AppState.projects.find(p => p.id == route.params.id)),
+      account: computed(() => AppState.account)
     }
   },
 }

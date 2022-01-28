@@ -9,7 +9,12 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create Task</h5>
+            <h5
+              class="modal-title text-secondary fw-bolder text-uppercase"
+              id="exampleModalLabel"
+            >
+              Create Task
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -20,32 +25,47 @@
           <div class="modal-body container-fluid">
             <div class="row">
               <div class="col-md-6">
-                <h6>Task Name</h6>
+                <h6 class="text-secondary fw-bolder text-uppercase">
+                  Task Name
+                </h6>
                 <input
                   v-model="state.editable.name"
                   type="text"
-                  class="form-text rounded  w-100 border-1 border-light" required="true"
+                  class="form-text rounded w-100 border-1 border-light"
+                  required="true"
+                  aria-label="task name input"
                 />
               </div>
               <div class="col-md-6">
-                <h6>Task Weight</h6>
+                <h6 class="text-secondary fw-bolder text-uppercase">
+                  Task Weight
+                </h6>
                 <input
                   v-model="state.editable.weight"
                   type="text"
                   class="form-text rounded w-100 border-1 border-light"
-                required="true"/>
+                  required="true"
+                  aria-label="task weight input"
+                />
               </div>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="d-flex justify-content-between my-3 px-3">
             <button
               type="button"
-              class="btn btn-secondary"
               data-bs-dismiss="modal"
+              aria-label="Close"
+              class="btn text-dark lighten-20 text-uppercase selectable"
             >
-              Close
+              <b> cancel </b>
             </button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button
+              type="submit"
+              class="btn text-primary text-uppercase selectable"
+              aria-label="Submit New Task"
+            >
+              <b> submit </b>
+            </button>
           </div>
         </div>
       </div>

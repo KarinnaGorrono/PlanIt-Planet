@@ -8,26 +8,37 @@
         <div class="card mt-5 elevation-3">
           <div class="card-body">
             <div class="row justify-content-between">
-              <div class="col-md-4 text-start mx-4 text-dark lighten-25">
-                <h1>Projects</h1>
+              <div
+                class="
+                  col-md-4
+                  text-start
+                  mx-4
+                  text-secondary text-shadow
+                  fw-bolder
+                "
+              >
+                <h1>PROJECTS</h1>
               </div>
               <div class="col-md-4 text-end mx-4">
                 <button
-                  class="btn btn-outline-primary lighten-25"
+                  class="btn btn-outline-secondary text-uppercase fw-bold"
                   @click="createModal()"
+                  aria-label="create new project"
                 >
                   Create Project
                 </button>
               </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center pt-4">
               <div class="col-md-10 pt-3">
                 <div class="row">
                   <div
                     class="
                       col-md-4
                       text-primary
-                      lighten-25
+                      fw-bold
+                      fs-5
+                      text-shadow
                       border-bottom border-2
                     "
                   >
@@ -37,7 +48,9 @@
                     class="
                       col-md-4
                       text-primary
-                      lighten-25
+                      fw-bold
+                      fs-5
+                      text-shadow
                       border-bottom border-2
                     "
                   >
@@ -47,7 +60,9 @@
                     class="
                       col-md-4
                       text-primary
-                      lighten-25
+                      fw-bold
+                      fs-5
+                      text-shadow
                       border-bottom border-2
                     "
                   >
@@ -61,16 +76,16 @@
                   :key="p.name"
                 >
                   <div
-                    class="col-md-4 text-dark lighten-25 selectable"
+                    class="col-md-4 text-dark lighten-25 selectable fs-4 pt-2"
                     @click="Push(p.id)"
                   >
                     <p>{{ p.name }}</p>
                   </div>
                   <div class="col-md-4">
                     <img
-                      class="rounded-circle img-fluid w-25"
+                      class="rounded-circle img-fluid user-img"
                       :src="p.creator?.picture"
-                      alt=""
+                      :alt="account.name + 'picture'"
                     />
                   </div>
                   <div
@@ -82,11 +97,19 @@
                       align-items-middle
                     "
                   >
-                    <p class="align-self-end d-flex mx-3">
+                    <p class="align-self-end d-flex mx-3 fs-5">
                       {{ new Date(p.createdAt).toLocaleString() }}
                     </p>
                     <button
-                      class="btn btn-danger mdi mdi-delete selectable"
+                      class="
+                        btn
+                        mdi mdi-delete
+                        selectable
+                        text-secondary
+                        py-3
+                        ps-4
+                      "
+                      :aria-label="'delete' + p.name"
                       @click="removeProject(p.id)"
                     ></button>
                   </div>
@@ -215,5 +238,15 @@ export default {
 }
 .h-10 {
   height: 10%;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.user-img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50px;
 }
 </style>

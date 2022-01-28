@@ -39,6 +39,7 @@
             text-secondary
             selectable
           "
+          aria-label="edit-profile"
           data-bs-toggle="modal"
           data-bs-target="#edit-profile-modal"
         ></i>

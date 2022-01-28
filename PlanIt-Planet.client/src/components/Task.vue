@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="ps-5">
       <div class="d-flex">
-        <h3>
+        <h4>
           <input
             @click="checkTask()"
             type="checkbox"
@@ -11,18 +11,20 @@
             :checked="task.isComplete"
           />
           {{ task.name }}
-        </h3>
+        </h4>
         <i
           class="mdi mdi-close ps-4 pt-1 fs-5 selectable"
           @click="deleteTask()"
+          :aria-label="'delete' + task.id"
         ></i>
       </div>
       <div class="ps-4 pt-2">
-        <i class="mdi mdi-rocket-launch-outline fs-5">{{ task.weight }}</i>
+        <i class="mdi mdi-weight fs-4">{{ task.weight }}</i>
         <i
-          class="ps-5 mdi mdi-comment-text-outline fs-5 selectable"
+          class="ps-5 mdi mdi-comment-text-outline fs-4 selectable"
           data-bs-toggle="offcanvas"
           :data-bs-target="'#task-details-' + `${task.id}`"
+          :aria-label="'view comments for' + task.name"
         ></i>
       </div>
     </div>
