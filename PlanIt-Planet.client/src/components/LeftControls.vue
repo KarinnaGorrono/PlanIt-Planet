@@ -11,16 +11,6 @@
   >
     P
   </button>
-  <button
-    class="btn-secondary w-50 rounded mt-2 h-10 border-0"
-    type="button"
-    data-bs-toggle="editproj-modal"
-    data-bs-target="#editproj-modal"
-  
-    @click="editModal"
-  >
-    <i class="mdi mdi-cog text-dark"></i>
-  </button>
 </template>
 
 
