@@ -35,6 +35,7 @@
           v-for="p in projects"
           :key="p.id"
           @click="Push(p.id)"
+          :aria-label="p.name"
         >
           <div class="col-md-6 ps-5">{{ p.name }}</div>
           <div class="col-md-6 text-end pe-5">

@@ -20,9 +20,9 @@
               >
                 <div class="col-12 d-flex justify-content-between">
                   <div class="d-flex p-1">
-                    <h3 class="text-primary text-uppercase fw-bold pt-2">
+                    <p class="text-primary text-uppercase fw-bold fs-3 pt-2">
                       {{ sprint.name }}
-                    </h3>
+                    </p>
                   </div>
                   <div class="d-flex p-1">
                     <p class="mdi mdi-weight fs-2 text-primary">

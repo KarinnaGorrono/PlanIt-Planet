@@ -9,13 +9,16 @@
             :name="task.name"
             :id="task.id"
             :checked="task.isComplete"
+            aria-checked="false"
+            :aria-label="'complete task' + task.name"
           />
+          <!-- how do we write v-if aria attribute for checked/unchecked  -->
           {{ task.name }}
         </h4>
         <i
           class="mdi mdi-close ps-4 pt-1 fs-5 selectable"
           @click="deleteTask()"
-          :aria-label="'delete' + task.id"
+          :aria-label="'delete' + task.name"
         ></i>
       </div>
       <div class="ps-4 pt-2">

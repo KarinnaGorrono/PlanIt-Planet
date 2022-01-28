@@ -7,9 +7,9 @@
             <b> {{ project.name }} </b>
           </h1>
           <div class="d-flex justify-content-between pt-2 ps-1">
-            <h5>
+            <p class="fs-4">
               {{ project.description }}
-            </h5>
+            </p>
 
             <button
               class="btn btn-outline-secondary text-uppercase fw-bold"

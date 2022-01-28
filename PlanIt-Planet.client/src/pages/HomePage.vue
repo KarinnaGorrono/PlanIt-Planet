@@ -138,7 +138,15 @@
           alt="PlanIt Icon"
           class="rounded-circle"
         />
-        <h3 class="my-5 text-white p-3 rounded text-center">
+        <h3
+          class="
+            my-5
+            text-secondary text-uppercase text-shadow
+            p-3
+            rounded
+            text-center
+          "
+        >
           Welcome to Plan-It! <br />
           Please Log In To Get Started
         </h3>
